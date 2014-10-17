@@ -1,0 +1,315 @@
+extends layout
+
+block content
+    .modal.hide.fade#splashpage(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title= title
+                .modal-body
+                    p
+                        | Welcome to the 
+                        =title
+                        | . If this is your first time here, please click the "Help" tile for assistance. 
+                        br
+                        br
+                        | Please not that this webapp requires an HTML5 and Javascript compatible browser, and will not run on Internet Explorer.
+                        | You can find a more suitable alternative below
+                        br
+                        br
+                        a.btn.btn-primary(type="button", style="padding:0px;margin:10px", href="https://www.google.com/chrome/browser/") 
+                            img(src="images/chrome.png",style="width:75px")
+                        a.btn.btn-primary(type="button", style="padding:0px;margin:10px", href="https://www.mozilla.org/firefox/") 
+                            img(src="images/firefox.png",style="width:75px")
+                        a.btn.btn-primary(type="button", style="padding:0px;margin:10px", href="https://www.apple.com/safari/") 
+                            img(src="images/safari.png",style="width:75px")
+                .modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal") Continue
+    .modal.hide.fade#addstart(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title Add New Widget
+                .modal-body
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#datasource(name="datasource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#datavar(name="datavar")
+                .modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal") Close
+                    button.btn.btn-primary#chartpage(type="button") Continue
+    .modal.hide.fade#addquant(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title Select Chart Type
+                .modal-body
+                    button.btn.btn-primary.chart-button#geo(type="button", style="padding:0px;margin:10px")
+                        img(src="images/geo.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#hist(type="button", style="padding:0px;margin:10px")
+                        img(src="images/hist.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#scatter(type="button", style="padding:0px;margin:10px")
+                        img(src="images/scatter.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#number(type="button", style="padding:0px;margin:10px")
+                        img(src="images/number.gif",style="width:100px")
+                .modal-footer
+                    button.btn.btn-primary#genquant(type="button") Continue
+    .modal.hide.fade#addqual(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title Select Chart Type
+                .modal-body
+                    button.btn.btn-primary.chart-button#pie(type="button", style="padding:0px;margin:10px")
+                        img(src="images/pie.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#donut(type="button", style="padding:0px;margin:10px")
+                        img(src="images/donut.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#row(type="button", style="padding:0px;margin:10px")
+                        img(src="images/row.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#box(type="button", style="padding:0px;margin:10px")
+                        img(src="images/box.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#bubble(type="button", style="padding:0px;margin:10px")
+                        img(src="images/bubble.png",style="width:100px")
+                    button.btn.btn-primary.chart-button#number(type="button", style="padding:0px;margin:10px")
+                        img(src="images/number.gif",style="width:100px")
+                .modal-footer
+                    button.btn.btn-primary#genqual(type="button") Continue
+    .modal.hide.fade#tableconfig(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title Select Table Columns
+                .modal-body.tablebody
+                    select#col0(name="col0")
+                    div.fa-stack.fa-lg.addtable
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x +
+                .modal-footer
+                    button.btn.btn-primary#gentable(type="button") Continue
+    .modal.hide.fade#boxconfig(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title Select Secondary Variable
+                .modal-body
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#boxsource(name="boxsource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#boxvar(name="boxvar")
+                .modal-footer
+                    button.btn.btn-primary#genbox(type="button") Continue
+    .modal.hide.fade#bubbleconfig(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title Select Graphing Variables
+                .modal-body
+                    h4 x Axis
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#xbubblesource(name="xbubblesource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#xbubblevar(name="xbubblevar")
+                    br
+                    h4 y Axis
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#ybubblesource(name="ybubblesource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#ybubblevar(name="ybubblevar")
+                    br
+                    h4 Radius
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#rbubblesource(name="rbubblesource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#rbubblevar(name="rbubblevar")
+                    br
+                    h4 Color
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#cbubblesource(name="cbubblesource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#cbubblevar(name="cbubblevar")
+                .modal-footer
+                    button.btn.btn-primary#genbubble(type="button") Continue
+    .modal.hide.fade#scatterconfig(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title Select Graphing Variables
+                .modal-body
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#yscattersource(name="yscattersource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#yscattervar(name="yscattervar")
+                    br
+                    h4 Color
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 1
+                    span
+                        strong Select the data source
+                    br
+                    select#cscattersource(name="cscattersource")
+                    br
+                    br
+                    div.fa-stack.fa-lg
+                        i.fa.fa-circle.fa-stack-2x
+                        i.fa.fa-inverse.fa-stack-1x 2
+                    span
+                        strong Select the data variable
+                        br
+                    select#cscattervar(name="cscattervar")
+                .modal-footer
+                    button.btn.btn-primary#genscatter(type="button") Continue
+    .modal.hide.fade#helpbox(tabindex="-1")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type="button" ,data-dismiss="modal", aria-hidden="true")&times;
+                    h4.modal-title Help
+                .modal-body
+                    h4 Overview
+                    p
+                        |This webapp combines and integrates multiple socioeconomic and medical datasets using big data analytics, in order to 
+                        |provide a lightweight, scalable platform for drawing inferences related to medical care, sociology, and economy in the United States.
+                    h4 Layout
+                    p
+                        |Operation of the exploratory dashboard is done primarily through the manipulation of various ‘tiles’. Each tile represents either a 
+                        |chart or a widget, and can be moved around the screen to suit the user’s preference. To move a tile, simply click-and-drag (if on a PC)
+                        |, or touch to drag-and-drop (if on a touch-enabled device). Upon starting the webapp, there are only 5 tiles on the screen, as well as
+                        | 1 additional tile to display the title. These 5 tiles can then be further manipulated to create additional tiles.
+                    h4 Chart Creation
+                    p
+                        |To create a new chart, start by clicking the ’Add’ tile in order to trigger the chart creation wizard. A dialogue box will then pop up 
+                        |asking to select the primary, filterable variable (usually the independent variable you will be investigating). Simply select a data 
+                        |source, then a variable derived from that source, and click ‘Continue’. A dialog box will then present a list of compatible chart types
+                        | based on your previously selected option. Select your desired chart type, and proceed through the rest of the customized wizard to
+                        | complete the tile
+                    h4 Chart Manipulation
+                    p
+                        |All charts in the dashboard come included with Crossfilter and Dc integration, allowing for a variety of interesting data
+                        | filtrations and manipulations. To filter a specific variable, click/tap on a specific portion or range of a chart. For example, 
+                        |to filter for females on a pie chart showing gender distributions, simply select the ‘Female’ slice of the pie chart. When a filter
+                        | is applied to a specific chart, all other charts will reflect that filter i.e. applying the aforementioned ‘Female’ filter will cause
+                        | all other charts to reflect data for females only
+                .modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal") Close
+    //Wrapper
+    .container
+        .gridster
+            ul(style="list-style-type:none")
+                li(data-row="1",data-col="1",data-sizex="6",data-sizey="1", style="background-color:#333333;color:#dddddd; text-indent: 90px")
+                    h1= title
+                li#add(data-row="1",data-col="1",data-sizex="1",data-sizey="2", style="background-color:#2c52d1; text-align: center;font-size:21px;color:#5d83f2",href="#addstart",role="button",data-toggle="modal")
+                    br
+                    i.fa.fa-plus-square.fa-5x
+                    p Add
+                li#remove(data-row="1",data-col="1",data-sizex="1",data-sizey="2", style="background-color:#db004d;text-align: center;font-size:21px;color:#fb308d")
+                    br
+                    i.fa.fa-minus-square.fa-5x
+                    p Remove
+                li#settings(data-row="1",data-col="1",data-sizex="1",data-sizey="2", style="background-color:#008500;text-align: center;font-size:21px;color:#30b930")
+                    br
+                    i.fa.fa-cog.fa-5x
+                    p Settings
+                li#help(data-row="1",data-col="1",data-sizex="1",data-sizey="2", style="background-color:#e07902;text-align: center;font-size:21px;color:#ffab22",href="#helpbox",role="button",data-toggle="modal")
+                    br
+                    i.fa.fa-question-circle.fa-5x
+                    p Help
+                li#export(data-row="1",data-col="1",data-sizex="1",data-sizey="2", style="background-color:#9500c7;text-align: center;font-size:21px;color:#c929ff", href="#",download="DashboardData.json")
+                    a#exportlink(href="#",download="DashboardData.json")
+                        div(style="height:165px;width:199px")
+                            br
+                            i.fa.fa-download.fa-5x
+                            br
+                            p Export

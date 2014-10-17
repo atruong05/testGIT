@@ -1,0 +1,3 @@
+#Git ignore these folders / files
+mongodb-win32-i386-2.6.4/
+server/
